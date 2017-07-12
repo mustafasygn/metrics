@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
 import java.util.DoubleSummaryStatistics;
 import java.util.concurrent.TimeUnit;
 
@@ -34,7 +35,7 @@ public class MetricController {
 	}
 
 	@PostMapping("/transaction")
-	public ResponseEntity<?> createTransaction(@RequestBody Transaction transaction) {
+	public ResponseEntity<?> createTransaction(@Valid @RequestBody Transaction transaction) {
 		try {
 			metricRepository.addAmountTransaction(transaction, SECOND_LIMIT);
 		} catch (Exception e) {

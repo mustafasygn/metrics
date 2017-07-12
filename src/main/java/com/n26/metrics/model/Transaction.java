@@ -1,10 +1,16 @@
 package com.n26.metrics.model;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 /**
  * Created by musta on 5.07.2017.
  */
 public class Transaction {
+	@NotNull
 	private Double amount;
+
+	@NotNull
 	private Long timestamp;
 
 	public Transaction() {
